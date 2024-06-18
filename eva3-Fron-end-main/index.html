@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="p-5 text-bg-success text-center">
+        <h1>Hotel Vista Hermosa</h1>
+    </header>
+    <main class="container-fluid row">
+        <div class="col-4">
+            <form class="card mt-3 mb-3">
+                <div class="card-header">
+                    <h3>Completa la reserva</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Datos Personales</h4>
+                    <div>
+                        <label>Run</label>
+                        <input type="text" id="run" name="run" class="form-control" onblur="verificar(this.id)">
+                        <div id="e-run"></div>
+                    </div>
+                    <div>
+                        <label>Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" onblur="verificar(this.id)">
+                        <div id="e-nombre"></div>
+                    </div>
+                    <div>
+                        <label>Apellido</label>
+                        <input type="text" id="apellido" name="apellido" class="form-control" onblur="verificar(this.id)">
+                        <div id="e-apellido"></div>
+                    </div>
+                    <div>
+                        <label>Teléfono</label>
+                        <input type="text" id="fono" name="fono" class="form-control" maxlength="9"
+                            onkeypress="return soloNumeros(event)" onblur="verificar(this.id)">
+                        <div id="e-fono"></div>
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="email" id="email" name="email" class="form-control" onblur="verificar(this.id)">
+                        <div id="e-email"></div>
+                    </div>
+                    <h4>Datos de Reserva</h4>
+                    <div>
+                        <label>Fecha de Reserva</label>
+                        <input type="date" id="fecha" name="fecha" class="form-control" onblur="verificar(this.id)">
+                        <div id="e-fecha"></div>
+                    </div>
+
+                    <div>
+                        <label>Habitaciones</label>
+                        <select id="habita" name="Habitacion" class="form-select" onblur="verificar(this.id)">
+                            <option value="" selected disabled>Seleccione Una Habitacion.</option>
+                            <option value="Habitacion para 1">Habitacion para 1 persona</option>
+                            <option value="Habitacion para 2">Habitacion para 2 personas</option>
+                            <option value="Habitacion para 3">Habitacion para 3 personas</option>
+                            <option value="Habitacion para 4">Habitacion para 4 personas</option>
+                            <option value="Habitacion para 5">Habitacion para 5 personas</option>
+                        </select>
+                        <div id="e-habita"></div>
+                    </div>
+                    <div>
+                        <label>Dias de reserva</label>
+                        <input type="number" id="reserva" name="reserva" class="form-control"min="1" max="31"
+                            onkeypress="return soloNumeros(event)" onblur="verificar(this.id)">
+                        <div id="e-reserva"></div>
+                    </div>
+
+                    <div>
+                        <label>Metodo de Pago</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="Efectivo" name="eleccion" id="efectivo" onclick="validaRadio(this.name)">
+                            <label class="form-check-label">
+                                Efectivo
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="Devito" name="eleccion" id="devito" onclick="validaRadio(this.name)">
+                            <label class="form-check-label">
+                                Devito
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="En linea" name="eleccion" id="en linea" onclick="validaRadio(this.name)">
+                            <label class="form-check-label">
+                                En Linea
+                            </label>
+                        </div>
+                        <div id="e-eleccion"></div>
+                    </div>
+
+                </div>
+                <div class="card-footer text-center">
+                    <input type="button" value="Limpiar" onclick="limpiar()" class="btn btn-info w-25">
+                    <input type="submit" value="Guardar" id="btnSave" class="btn btn-success w-25">
+                </div>
+            </form>
+        </div>
+        <div class="col-8 mt-3">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Run</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>
+                            <th>Email</th>
+                            <th>Fecha</th>
+                            <th>Habitacion</th>
+                            <th>Cantidad de dias</th>
+                            <th>Metodo de pago</th>
+                            <th>Obciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenido"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="validaRun.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="utilidades.js"></script>
+    <script src="funciones.js" type="module"></script>
+</body>
+</html>
+
+
+<!-- https://renitzuki.github.io/a/ -->
